@@ -1,0 +1,18 @@
+import requests
+
+def obtener_lugar():
+url = "https://fakerapi.it/api/v1/places?_quantity=1"
+response = requests.get(url)
+data = response.json()
+lugar = data['data'][0]
+return lugar
+
+if name == "main":
+lugar = obtener_lugar()
+print("Lugar generado aleatoriamente:")
+print("Nombre:", lugar['name'])
+print("Dirección:", lugar['address'])
+print("Ciudad:", lugar['city'])
+print("Estado:", lugar['state'])
+print("País:", lugar['country'])
+print("Código postal:", lugar['zipcode'])

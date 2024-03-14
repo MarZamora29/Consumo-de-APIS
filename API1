@@ -1,0 +1,15 @@
+import requests
+
+def obtener_direccion_falsa():
+url = "https://fakerapi.it/api/v1/addresses?_quantity=1"
+respuesta = requests.get(url)
+datos = respuesta.json()
+direccion = datos['data'][0]
+return direccion
+
+direccion_falsa = obtener_direccion_falsa()
+print("Dirección falsa generada:")
+print("Calle:", direccion_falsa['address'])
+print("Ciudad:", direccion_falsa['city'])
+print("Código postal:", direccion_falsa['zip'])
+print("País:", direccion_falsa['country'])

@@ -1,0 +1,23 @@
+import requests
+
+url = "https://fakerapi.it/api/v1/persons"
+params = {
+"_quantity": 1,
+"_gender": "male",
+"_birthday_start": "2005-01-01"
+}
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+data = response.json()
+person = data['data'][0]
+print("Información de la persona:")
+print("Nombre:", person['firstname'], person['lastname'])
+print("Género:", person['gender'])
+print("Fecha de nacimiento:", person['birthday'])
+print("Dirección:", person['address'])
+print("Email:", person['email'])
+print("Teléfono:", person['phone_number'])
+else:
+print("Error al obtener los datos de la API.")
